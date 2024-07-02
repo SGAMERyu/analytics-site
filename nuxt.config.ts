@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@unocss/nuxt", "@nuxtjs/tailwindcss", "dayjs-nuxt", "shadcn-nuxt"],
+  modules: ["@unocss/nuxt", "@nuxtjs/tailwindcss", "shadcn-nuxt"],
   shadcn: {
     prefix: "",
     /**
@@ -9,5 +9,12 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: "./components/ui",
+  },
+  nitro: {
+    esbuild: {
+      options: {
+        target: "esnext",
+      },
+    },
   },
 });
