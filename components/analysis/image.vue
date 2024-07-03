@@ -1,10 +1,10 @@
 <template>
   <div class="flex">
-    <AspectRatio :ratio="4 / 3" class="w-[400px]">
+    <AspectRatio :ratio="1280 / 720" class="w-[400px]">
       <img :src="props.src.bigDataUrl" alt="" srcset="" />
     </AspectRatio>
-    <AspectRatio :ratio="4 / 3" class="w-[400px]">
-      <img :src="props.src.bigDataUrl" alt="" srcset="" />
+    <AspectRatio :ratio="438 / 891" class="w-[400px]">
+      <img :src="props.src.smallDataUrl" alt="" srcset="" />
     </AspectRatio>
   </div>
 </template>

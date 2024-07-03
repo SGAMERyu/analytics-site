@@ -28,22 +28,22 @@ class HeadlessService {
     const page = await this.browserContext.newPage();
     await page.goto(url);
     const info = await this.getPageInfo(page);
-    const screenshot = await this.screenshotFromUrl(page);
+    const screenshot = await this.screenshotFromUrl(page, url);
 
     return { info, screenshot };
   }
 
-  async screenshotFromUrl(page: Page) {
+  async screenshotFromUrl(page: Page, url: string) {
     await page.waitForLoadState("networkidle", { timeout: 5000 });
     await page.setViewportSize({
-      width: 1440,
-      height: 960,
+      width: 1280,
+      height: 720,
     });
     const BigScreenshotBuffer = await page.screenshot();
     const bigBase64Image = BigScreenshotBuffer.toString("base64");
     await page.setViewportSize({
-      width: 430,
-      height: 932,
+      width: 438,
+      height: 891,
     });
     const smallScreenshotBuffer = await page.screenshot();
     const smallBase64Image = smallScreenshotBuffer.toString("base64");
