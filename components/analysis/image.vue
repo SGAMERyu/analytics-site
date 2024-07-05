@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex w-full">
     <AspectRatio :ratio="1280 / 720" class="w-[400px]">
       <img :src="props.src.bigDataUrl" alt="" srcset="" />
     </AspectRatio>

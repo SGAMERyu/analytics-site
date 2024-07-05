@@ -4,9 +4,7 @@
     <UIInput v-model="refUrl"></UIInput>
     <UIButton @click="analyzeUrl">analyze</UIButton>
   </div>
-  <section class="mt-8">
-    <AnalysisImage :src="refData.screenshot"></AnalysisImage>
-  </section>
+  <AnalysisInfo :info="refData.info" :screenshot="refData.screenshot" />
 </template>
 
 <script lang="ts" setup>
@@ -16,7 +14,10 @@ import { Input as UIInput } from "@/components/ui/input";
 const refUrl = ref("");
 const refData = ref({
   info: {},
-  screenshot: {},
+  screenshot: {
+    smallDataUrl: "",
+    bigDataUrl: "",
+  },
 });
 
 async function analyzeUrl() {

@@ -38,6 +38,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.4)
+  ufo:
+    specifier: ^1.5.3
+    version: 1.5.3
   vue:
     specifier: latest
     version: 3.4.31(typescript@5.5.3)

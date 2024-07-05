@@ -5,6 +5,8 @@ import {
   devices,
   Page,
 } from "playwright-chromium";
+import { resolve } from "node:dns/promises";
+import { parseURL } from "ufo";
 
 class HeadlessService {
   browser!: Browser | null;
@@ -29,8 +31,8 @@ class HeadlessService {
     await page.goto(url);
     const info = await this.getPageInfo(page);
     const screenshot = await this.screenshotFromUrl(page, url);
-
-    return { info, screenshot };
+    const ip = await this.getWebsiteIp(url);
+    return { info: { ...info, ip }, screenshot };
   }
 
   async screenshotFromUrl(page: Page, url: string) {
@@ -69,6 +71,13 @@ class HeadlessService {
       title,
       description,
     };
+  }
+
+  async getWebsiteIp(url: string) {
+    const { host } = parseURL(url);
+    const ip = await resolve(host!, "A");
+    console.log(ip, host);
+    return ip;
   }
 }
 
