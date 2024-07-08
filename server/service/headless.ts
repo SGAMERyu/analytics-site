@@ -36,7 +36,7 @@ class HeadlessService {
   }
 
   async screenshotFromUrl(page: Page, url: string) {
-    await page.waitForLoadState("networkidle", { timeout: 5000 });
+    await page.waitForLoadState("load", { timeout: 5000 });
     await page.setViewportSize({
       width: 1280,
       height: 720,
@@ -75,8 +75,8 @@ class HeadlessService {
 
   async getWebsiteIp(url: string) {
     const { host } = parseURL(url);
-    const ip = await resolve(host!, "A");
-    console.log(ip, host);
+    const ips = await resolve(host!, "A");
+    const ip = ips[0];
     return ip;
   }
 }

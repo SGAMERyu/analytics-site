@@ -1,11 +1,15 @@
 <template>
-  <div class="flex w-full">
-    <AspectRatio :ratio="1280 / 720" class="w-[400px]">
-      <img :src="props.src.bigDataUrl" alt="" srcset="" />
-    </AspectRatio>
-    <AspectRatio :ratio="438 / 891" class="w-[400px]">
-      <img :src="props.src.smallDataUrl" alt="" srcset="" />
-    </AspectRatio>
+  <div class="flex">
+    <div class="w-[800px]">
+      <AspectRatio :ratio="1280 / 720">
+        <img :src="props.src.bigDataUrl" alt="" srcset="" />
+      </AspectRatio>
+    </div>
+    <div class="w-[400px]">
+      <AspectRatio :ratio="438 / 891">
+        <img :src="props.src.smallDataUrl" alt="" srcset="" />
+      </AspectRatio>
+    </div>
   </div>
 </template>
 
