@@ -4,7 +4,9 @@
     <UIInput v-model="refUrl"></UIInput>
     <UIButton @click="analyzeUrl">analyze</UIButton>
   </div>
-  <AnalysisInfo :info="refData.info" :screenshot="refData.screenshot" />
+  <section class="mt-8">
+    <AnalysisTab :info="refData.info" :screenshot="refData.screenshot" />
+  </section>
 </template>
 
 <script lang="ts" setup>
