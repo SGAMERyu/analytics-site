@@ -16,10 +16,7 @@ import { Input as UIInput } from "@/components/ui/input";
 const refUrl = ref("");
 const refData = ref({
   info: {},
-  screenshot: {
-    smallDataUrl: "",
-    bigDataUrl: "",
-  },
+  screenshot: ''
 });
 
 async function analyzeUrl() {

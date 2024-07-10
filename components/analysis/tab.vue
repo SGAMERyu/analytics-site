@@ -4,7 +4,7 @@
       <TabsTrigger value="summary"> summary </TabsTrigger>
       <TabsTrigger value="screenshot"> screenshot </TabsTrigger>
       <TabsTrigger value="favicon"> favicon </TabsTrigger>
-      <TabsTrigger value="favicon"> palette </TabsTrigger>
+      <TabsTrigger value="palette"> palette </TabsTrigger>
     </TabsList>
     <TabsContent value="summary">
       <AnalysisInfo :info="props.info" />
@@ -22,10 +22,7 @@ interface Props {
     ip: string;
     summary: string;
   };
-  screenshot: {
-    smallDataUrl: string;
-    bigDataUrl: string;
-  };
+  screenshot: string
 }
 
 const props = defineProps<Props>();
