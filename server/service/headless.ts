@@ -39,9 +39,13 @@ class HeadlessService {
   }
 
   async summaryContent(content: string) {
-    const prompt = createSummaryPrompt(content);
-    const text = await this.GenAdapterWithGroq(prompt);
-    return text;
+    try {
+      const prompt = createSummaryPrompt(content);
+      const text = await this.GenAdapterWithGroq(prompt);
+      return text;
+    } catch (error) {
+      return 'no summary'
+    }
   }
 
   async GenAdapterWithGroq(prompt: string) {
@@ -63,6 +67,7 @@ class HeadlessService {
     const info = await this.getPageInfo(page);
     const screenshot = await this.screenshotFromUrl(page, url);
     const ip = await this.getWebsiteIp(url);
+    await page.close();
     return { info: { ...info, ip }, screenshot };
   }
 
