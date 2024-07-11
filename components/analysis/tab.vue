@@ -9,6 +9,9 @@
     <TabsContent value="summary">
       <AnalysisInfo :info="props.info" />
     </TabsContent>
+    <TabsContent value="screenshot">
+      <AnalysisImage :src="props.screenshot" />
+    </TabsContent>
   </Tabs>
 </template>
 
@@ -22,7 +25,7 @@ interface Props {
     ip: string;
     summary: string;
   };
-  screenshot: string
+  screenshot: string;
 }
 
 const props = defineProps<Props>();

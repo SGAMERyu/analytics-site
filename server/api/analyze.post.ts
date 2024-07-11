@@ -1,8 +1,11 @@
 import createHeadlessService from "~/server/service/headless";
 
-export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
+export default defineLazyEventHandler(async () => {
   const headlessService = await createHeadlessService();
-  const { url } = body;
-  return await headlessService.analysisFromUrl(url);
+
+  return defineEventHandler(async (event) => {
+    const body = await readBody(event);
+    const { url } = body;
+    return await headlessService.analysisFromUrl(url);
+  });
 });

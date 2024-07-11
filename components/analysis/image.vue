@@ -1,8 +1,10 @@
 <template>
-  <div class="w-[800px]">
-    <AspectRatio :ratio="1280 / 720">
-      <img :src="props.src" alt="" srcset="" />
-    </AspectRatio>
+  <div class="flex justify-center mb-10">
+    <div class="w-[800px]">
+      <AspectRatio :ratio="1280 / 720">
+        <img :src="props.src" alt="" srcset="" />
+      </AspectRatio>
+    </div>
   </div>
 </template>
 
